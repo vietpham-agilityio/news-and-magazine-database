@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "publicationDate": {
+      "type": "date",
+      "required": true
+    },
+    "imageUrl": {
+      "type": "text",
+      "required": true,
+      "default": "https://images.unsplash.com/photo-1714925298388-6b362e31bd0c?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    "videoUrl": {
+      "type": "text",
+      "required": true,
+      "default": "https://www.youtube.com/watch?v=UjmaxCyJBc4&pp=ygURaXBhZCBwcm8gbTIgYXBwbGU%3D"
+    },
+    "authorId": {
+      "type": "string",
+      "required": true
+    },
+    "views": {
+      "required": true,
+      "default": 0,
+      "type": "integer"
+    },
+    "likes": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "shared": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "post_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-tag.post-tag",
+      "mappedBy": "post"
+    },
+    "post_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-category.post-category",
+      "mappedBy": "post"
+    }
+  }
+}

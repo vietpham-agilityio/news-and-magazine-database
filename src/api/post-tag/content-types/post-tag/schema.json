@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_tags",
+  "info": {
+    "singularName": "post-tag",
+    "pluralName": "post-tags",
+    "displayName": "Post-tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "postId": {
+      "type": "string",
+      "required": true
+    },
+    "tagId": {
+      "type": "string",
+      "required": true
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "post_tags"
+    },
+    "tag": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tag.tag",
+      "inversedBy": "post_tags"
+    }
+  }
+}
